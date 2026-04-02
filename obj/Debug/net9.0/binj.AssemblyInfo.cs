@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("binj")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6fdb92f064970a9ac769b8d88ad5869ef7b5f3a9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7784bbf4c5b1f8da6223c88fa199d9e1c13410a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("binj")]
 [assembly: System.Reflection.AssemblyTitleAttribute("binj")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
