@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/aydenmason/Code/csharp/projects/binj/binj/src/Binj.Infrastructure/Binj.Infrastructure.csproj": {}
+    "/Users/aydenmason/Code/csharp/projects/binj/src/Binj.Infrastructure/Binj.Infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/aydenmason/Code/csharp/projects/binj/binj/src/Binj.Infrastructure/Binj.Infrastructure.csproj": {
+    "/Users/aydenmason/Code/csharp/projects/binj/src/Binj.Infrastructure/Binj.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/aydenmason/Code/csharp/projects/binj/binj/src/Binj.Infrastructure/Binj.Infrastructure.csproj",
+        "projectUniqueName": "/Users/aydenmason/Code/csharp/projects/binj/src/Binj.Infrastructure/Binj.Infrastructure.csproj",
         "projectName": "Binj.Infrastructure",
-        "projectPath": "/Users/aydenmason/Code/csharp/projects/binj/binj/src/Binj.Infrastructure/Binj.Infrastructure.csproj",
+        "projectPath": "/Users/aydenmason/Code/csharp/projects/binj/src/Binj.Infrastructure/Binj.Infrastructure.csproj",
         "packagesPath": "/Users/aydenmason/.nuget/packages/",
-        "outputPath": "/Users/aydenmason/Code/csharp/projects/binj/binj/src/Binj.Infrastructure/obj/",
+        "outputPath": "/Users/aydenmason/Code/csharp/projects/binj/src/Binj.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/aydenmason/.nuget/NuGet/NuGet.Config"

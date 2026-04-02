@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Binj.Application/Binj.Application.csproj" />
+    <Project Path="src/Binj.Cli/Binj.Cli.csproj" />
+    <Project Path="src/Binj.Domain/Binj.Domain.csproj" />
+    <Project Path="src/Binj.Infrastructure/Binj.Infrastructure.csproj" />
+  </Folder>
+</Solution>
