@@ -1,5 +1,6 @@
 namespace Binj.Cli;
 
+// Parses user command line arguments
 public class ArgumentParser
 {
     public void Parse(string[] args)
