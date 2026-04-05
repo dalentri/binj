@@ -1,3 +1,3 @@
 namespace Binj.Application.Features.Media.Commands.AddMedia;
 
-public record AddMedia(string Media, string MediaType, int Stars);
+public record AddMediaCommand(string Media, string MediaType, int Stars);

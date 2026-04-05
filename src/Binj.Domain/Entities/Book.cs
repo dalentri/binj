@@ -1,3 +1,3 @@
-namespace Binj.Entities;
+namespace Binj.Domain.Entities;
 
 
