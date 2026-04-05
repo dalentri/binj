@@ -1,6 +1,4 @@
-﻿using Binj.Application;
-using Binj.Application.Features.Media;
-using Binj.Cli;
+﻿using Binj.Cli;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -8,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 var builder = Host.CreateApplicationBuilder(args);
 
 // Register Services (Map the Interface to the Implementation)
-builder.Services.AddSingleton<IMediaService, MediaService>();
+// builder.Services.AddSingleton<>();
 
 // Register the parser so the Host can build it for us
 builder.Services.AddSingleton<ArgumentParser>();

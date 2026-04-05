@@ -6,15 +6,16 @@ public class Book
     public string Title { get; private set; }
     public int Page { get; private set; }
 
-    // Possible values: not_started, up_next, reading, finished, dropped
+    //TODO: Possible values: not_started, up_next, reading, finished, dropped
     public string Status { get; private set; }
 
+    // Constructor
     public Book(string title, int page, string status)
     {
         // Check for invalid titles
         if (string.IsNullOrWhiteSpace(title))
         {
-            throw new ArgumentException("Title Cannot be empty");
+            throw new ArgumentException("Title cannot be empty");
         }
 
         Id = Guid.NewGuid();
