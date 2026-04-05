@@ -7,9 +7,10 @@ public class Magazine
     public string Title { get; private set; }
     public int Volume { get; private set; }
     public int Issue { get; private set; }
+    public string Status { get; private set; }
     public int Rating { get; private set; }
 
-    public Magazine(string title, int volume, int issue, int rating)
+    public Magazine(string title, int volume, int issue, string status, int rating)
     {
         if (string.IsNullOrWhiteSpace(title))
         {
@@ -20,6 +21,7 @@ public class Magazine
         Title = title;
         Volume = volume;
         Issue = issue;
+        Status = status;
         Rating = rating;
     }
 }
