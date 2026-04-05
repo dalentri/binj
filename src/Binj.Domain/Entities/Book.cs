@@ -5,6 +5,8 @@ public class Book
     public Guid Id { get; private set; }
     public string Title { get; private set; }
     public int Page { get; private set; }
+
+    // Possible values: not_started, up_next, reading, finished, dropped
     public string Status { get; private set; }
 
     public Book(string title, int page, string status)
