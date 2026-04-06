@@ -12,10 +12,7 @@ public class Magazine
 
     public Magazine(string title, int volume, int issue, string status, int rating)
     {
-        if (string.IsNullOrWhiteSpace(title))
-        {
-            throw new ArgumentException("Invalid title, please provide the name of the magazine.");
-        }
+        ArgumentException.ThrowIfNullOrWhiteSpace(title);
 
         Id = Guid.NewGuid();
         Title = title;

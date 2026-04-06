@@ -13,10 +13,7 @@ public class Book
     public Book(string title, int page, string status)
     {
         // Check for invalid titles
-        if (string.IsNullOrWhiteSpace(title))
-        {
-            throw new ArgumentException("Title cannot be empty");
-        }
+        ArgumentException.ThrowIfNullOrWhiteSpace(title);
 
         Id = Guid.NewGuid();
         Title = title;
