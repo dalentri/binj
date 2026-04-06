@@ -1,24 +1,19 @@
 namespace Binj.Domain.Entities;
 
-public class Magazine
+public class Magazine : Media
 {
     // Attributes
-    public Guid Id { get; private set; }
-    public string Title { get; private set; }
     public int Volume { get; private set; }
     public int Issue { get; private set; }
-    public string Status { get; private set; }
     public int Rating { get; private set; }
 
+    // Constructor
     public Magazine(string title, int volume, int issue, string status, int rating)
+        // Pass shared data
+        : base(title, status)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(title);
-
-        Id = Guid.NewGuid();
-        Title = title;
         Volume = volume;
         Issue = issue;
-        Status = status;
         Rating = rating;
     }
 }
