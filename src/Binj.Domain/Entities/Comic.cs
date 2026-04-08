@@ -1,6 +1,6 @@
 namespace Binj.Domain.Entities;
 
-public class Magazine : Media
+public class Comic : Media
 {
     // Attributes
     public int Volume { get; private set; }
@@ -8,7 +8,7 @@ public class Magazine : Media
     public int Rating { get; private set; }
 
     // Constructor
-    public Magazine(string title, int volume, int issue, string status, int rating)
+    public Comic(string title, int volume, int issue, string status, int rating)
         // Pass shared data
         : base(title, status)
     {
