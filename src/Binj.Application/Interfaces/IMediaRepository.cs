@@ -2,7 +2,6 @@ namespace Binj.Application.Interfaces;
 
 using Binj.Domain.Entities;
 
-// TODO: Hook up to db
 public interface IMediaRepository<T>
     where T : Media
 {
