@@ -8,7 +8,7 @@ public class ArgumentParser
         // First command
         string result = args[0] switch
         {
-            "add" => AddMediaCommand(),
+            "add" => "Adding media to db",
             "remove" => "Removing media from database.",
             "edit" => "___ has been edited.",
             "view" => "Viewing database.",
