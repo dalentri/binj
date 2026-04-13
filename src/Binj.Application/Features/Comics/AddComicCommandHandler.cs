@@ -21,5 +21,7 @@ public class AddComicHandler
             request.Status,
             request.Rating
         );
+
+        await _repository.AddAsync(comic);
     }
 }
