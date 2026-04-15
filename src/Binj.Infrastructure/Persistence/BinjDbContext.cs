@@ -1,7 +1,7 @@
 using Binj.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Binj.Infrastructure.Data;
+namespace Binj.Infrastructure.Persistence;
 
 // Inherit from DbContext
 public class BinjDbContext : DbContext
