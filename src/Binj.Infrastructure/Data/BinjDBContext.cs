@@ -16,4 +16,16 @@ public class BinjDbContext : DbContext
     public DbSet<Book> Books => Set<Book>();
     public DbSet<Movie> Movies => Set<Movie>();
     public DbSet<Comic> Comics => Set<Comic>();
+
+    // The blueprint thats called by EfCore the first time the context is initialized
+    // Configures db columns, keys, etc.
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        // Call the base method to ensure EF core's internal defaults are loaded
+        base.OnModelCreating(modelBuilder);
+
+        // "Look through this entire project (Assembly) and find every calss that
+        // implements IEntityTypeConfiguration and apply it automatically."
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(BinjDbContext).Assembly);
+    }
 }
