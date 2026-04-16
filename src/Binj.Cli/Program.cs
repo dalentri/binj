@@ -8,12 +8,7 @@ var builder = Host.CreateApplicationBuilder(args);
 //FIX:
 builder.Services.AddDbContext<BinjDbContext>(options => );
 
-// Register the parser so the Host can build it for us
-builder.Services.AddSingleton<ArgumentParser>();
 
 // Build the Host
 using IHost host = builder.Build();
 
-// Resolve the parser and run it
-var parser = host.Services.GetRequiredService<ArgumentParser>();
-parser.Parse(args);
