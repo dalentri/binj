@@ -3,17 +3,30 @@ namespace Binj.Cli;
 // Parses user command line arguments
 public class ArgumentParser
 {
-    public void Parse(string[] args)
+    public static void Parse(string[] args)
     {
         // First command
-        string result = args[0] switch
+        switch (args[0])
         {
-            "add" => "Adding media to db",
-            "remove" => "Removing media from database.",
-            "edit" => "___ has been edited.",
-            "view" => "Viewing database.",
+            case "add":
+                Console.WriteLine("Adding media to db");
+                break;
+            case "remove":
+                Console.WriteLine("Removing media from database.");
+                break;
+            case "edit":
+                Console.WriteLine("___ has been edited.");
+                break;
+            case "view":
+                Console.WriteLine("Viewing database.");
+                break;
+            case "--help":
+                Menu.HelpMenu();
+                break;
             // Default
-            _ => "Invalid command, please retry. Type 'binj --help' for info.",
-        };
+            default:
+                Console.WriteLine("Invalid command, please retry. Type 'binj --help' for info.");
+                break;
+        }
     }
 }
