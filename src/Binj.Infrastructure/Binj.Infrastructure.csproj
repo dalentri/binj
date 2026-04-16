@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Binj.Domain\Binj.Domain.csproj" />
+    <ProjectReference Include="..\Binj.Application\Binj.Application.csproj" />
   </ItemGroup>
 
 </Project>
