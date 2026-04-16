@@ -5,8 +5,8 @@ using Microsoft.Extensions.Hosting;
 // Create the builder (Handles args, config, and logging)
 var builder = Host.CreateApplicationBuilder(args);
 
-// Register Services (Map the Interface to the Implementation)
-// builder.Services.AddSingleton<>();
+//FIX:
+builder.Services.AddDbContext<BinjDbContext>(options => );
 
 // Register the parser so the Host can build it for us
 builder.Services.AddSingleton<ArgumentParser>();
