@@ -2,6 +2,9 @@ namespace Binj.Domain.Entities;
 
 public class Comic : Media
 {
+    public Comic()
+        : base() { }
+
     // Attributes
     public int Volume { get; private set; }
     public int Issue { get; private set; }

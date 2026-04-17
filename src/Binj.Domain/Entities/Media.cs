@@ -2,6 +2,8 @@ namespace Binj.Domain.Entities;
 
 public abstract class Media
 {
+    protected Media() { }
+
     public Guid Id { get; protected set; }
     public string Title { get; protected set; }
     public string Status { get; protected set; }

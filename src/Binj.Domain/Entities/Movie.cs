@@ -2,6 +2,9 @@ namespace Binj.Domain.Entities;
 
 public class Movie : Media
 {
+    public Movie()
+        : base() { }
+
     // getters setters
     public string Genre { get; private set; }
     public int Rating { get; private set; }

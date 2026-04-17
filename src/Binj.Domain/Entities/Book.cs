@@ -2,6 +2,9 @@ namespace Binj.Domain.Entities;
 
 public class Book : Media
 {
+    public Book()
+        : base() { }
+
     public int Page { get; private set; }
 
     // Constructor
