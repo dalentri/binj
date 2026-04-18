@@ -1,4 +1,5 @@
-﻿using Binj.Domain.Entities;
+﻿using Binj.Application.Features.Books;
+using Binj.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Spectre.Console.Cli;
@@ -10,7 +11,10 @@ var app = new CommandApp();
 // Commands
 app.Configure(config =>
 {
+    // Add Commands
     config.AddCommand<AddMediaCommand<Comic, AddComicSettings>>("add-comic");
+    config.AddCommand<AddMediaCommand<Movie, AddMovieSettings>>("add-movie");
+    config.AddCommand<AddMediaCommand<Book, AddBookSettings>>("add-book");
 });
 
 // Build the Host
