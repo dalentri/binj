@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Binj.Application\Binj.Application.csproj" />
+    <ProjectReference Include="..\Binj.Infrastructure\Binj.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
