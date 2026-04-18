@@ -1,4 +1,5 @@
 ﻿using Binj.Domain.Entities;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Spectre.Console.Cli;
@@ -6,6 +7,10 @@ using Spectre.Console.Cli;
 // Create the builder (Handles args, config, and logging)
 var builder = Host.CreateApplicationBuilder(args);
 var app = new CommandApp();
+
+builder.Services.AddDbContext<BinjDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 // Commands
 app.Configure(config =>
