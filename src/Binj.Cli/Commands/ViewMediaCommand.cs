@@ -1,5 +1,3 @@
-using Binj.Application.Interfaces;
-using Binj.Domain.Entities;
 using MediatR;
 using Spectre.Console;
 using Spectre.Console.Cli;
