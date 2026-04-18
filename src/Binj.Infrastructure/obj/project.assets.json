@@ -264,6 +264,29 @@
             "related": ".xml"
           }
         }
+      },
+      "Binj.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Binj.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Binj.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Binj.Application.dll": {}
+        }
+      },
+      "Binj.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Binj.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Binj.Domain.dll": {}
+        }
       }
     }
   },
@@ -688,10 +711,22 @@
         "npgsql.entityframeworkcore.postgresql.nuspec",
         "postgresql.png"
       ]
+    },
+    "Binj.Application/1.0.0": {
+      "type": "project",
+      "path": "../Binj.Application/Binj.Application.csproj",
+      "msbuildProject": "../Binj.Application/Binj.Application.csproj"
+    },
+    "Binj.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Binj.Domain/Binj.Domain.csproj",
+      "msbuildProject": "../Binj.Domain/Binj.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Binj.Application >= 1.0.0",
+      "Binj.Domain >= 1.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.1"
     ]
   },
@@ -719,7 +754,14 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/aydenmason/Code/csharp/projects/binj/src/Binj.Application/Binj.Application.csproj": {
+              "projectPath": "/Users/aydenmason/Code/csharp/projects/binj/src/Binj.Application/Binj.Application.csproj"
+            },
+            "/Users/aydenmason/Code/csharp/projects/binj/src/Binj.Domain/Binj.Domain.csproj": {
+              "projectPath": "/Users/aydenmason/Code/csharp/projects/binj/src/Binj.Domain/Binj.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
