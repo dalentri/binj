@@ -21,7 +21,7 @@ public class EditMediaCommand<TEntity, TSettings> : AsyncCommand<TSettings>
     )
     {
         AnsiConsole.MarkupLine($"[green]Adding {typeof(TEntity).Name}...[/]");
-        await _repository.AddAsync(new TEntity());
+        await _repository.UpdateAsync(new TEntity());
         return 0;
     }
 }

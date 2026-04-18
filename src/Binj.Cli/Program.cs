@@ -15,6 +15,8 @@ app.Configure(config =>
     config.AddCommand<AddMediaCommand<Comic, AddComicSettings>>("add-comic");
     config.AddCommand<AddMediaCommand<Movie, AddMovieSettings>>("add-movie");
     config.AddCommand<AddMediaCommand<Book, AddBookSettings>>("add-book");
+
+    // Edit Commands
 });
 
 // Build the Host
