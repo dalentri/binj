@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Spectre.Console.Cli;
 
-public class EditBookSettings
+public class EditBookSettings : CommandSettings
 {
     [CommandArgument(0, "<Id>")]
     [Description("Id number of the book")]

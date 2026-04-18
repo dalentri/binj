@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Spectre.Console.Cli;
 
-public class EditComicSettings
+public class EditComicSettings : CommandSettings
 {
     [CommandArgument(0, "<Id>")]
     [Description("Id number of the comic")]

@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Spectre.Console.Cli;
 
-public class EditMovieSettings
+public class EditMovieSettings : CommandSettings
 {
     [CommandArgument(0, "<Id>")]
     [Description("Id number of the movie")]
