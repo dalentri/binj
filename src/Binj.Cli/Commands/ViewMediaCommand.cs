@@ -1,3 +1,5 @@
+using Binj.Application.DTOs;
+using Binj.Application.Queries;
 using MediatR;
 using Spectre.Console;
 using Spectre.Console.Cli;
