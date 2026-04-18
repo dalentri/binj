@@ -1,5 +1,6 @@
 ﻿using Binj.Domain.Entities;
 using Binj.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
