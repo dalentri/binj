@@ -2,3 +2,7 @@
 bin/
 obj/
 *.sln.dotsettings.user
+*.sqlite
+*.db
+*.sqlite3
+

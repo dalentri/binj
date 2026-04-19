@@ -25,6 +25,7 @@ var registrar = new TypeRegistrar(host.Services);
 var app = new CommandApp(registrar);
 
 // Commands
+// TODO: Make custom commands for all media types similar to AddBookCommand
 app.Configure(config =>
 {
     // Add Commands
