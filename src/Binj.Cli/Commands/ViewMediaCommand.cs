@@ -13,7 +13,11 @@ public class ViewMediaCommand : AsyncCommand<ViewMediaSettings>
         _mediator = mediator;
     }
 
-    public override async Task<int> ExecuteAsync(CommandContext context, ViewMediaSettings settings)
+    protected override async Task<int> ExecuteAsync(
+        CommandContext context,
+        ViewMediaSettings settings,
+        CancellationToken cancellationToken
+    )
     {
         // Call the application layer
         var results = await _mediator.Send(new GetAllMediaQuery());
