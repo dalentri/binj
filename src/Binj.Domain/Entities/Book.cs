@@ -5,7 +5,7 @@ public class Book : Media
     public Book()
         : base() { }
 
-    public int Page { get; private set; }
+    public int Page { get; set; }
 
     // Constructor
     public Book(string title, int page, string status)

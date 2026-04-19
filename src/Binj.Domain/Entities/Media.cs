@@ -4,9 +4,9 @@ public abstract class Media
 {
     protected Media() { }
 
-    public Guid Id { get; protected set; }
-    public string Title { get; protected set; }
-    public string Status { get; protected set; }
+    public Guid Id { get; set; }
+    public string Title { get; set; }
+    public string Status { get; set; } = "Planned";
 
     // TODO: should I add date?
     // public DateTime DateAdded { get; protected set; }

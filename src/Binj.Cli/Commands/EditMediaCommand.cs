@@ -1,5 +1,6 @@
 using Binj.Application.Interfaces;
 using Binj.Domain.Entities;
+using MediatR;
 using Spectre.Console;
 using Spectre.Console.Cli;
 
@@ -7,11 +8,11 @@ public class EditMediaCommand<TEntity, TSettings> : AsyncCommand<TSettings>
     where TEntity : Media, new()
     where TSettings : CommandSettings
 {
-    private readonly IMediaRepository<TEntity> _repository;
+    private readonly IMediator _mediator;
 
-    public EditMediaCommand(IMediaRepository<TEntity> repository)
+    public EditMediaCommand(IMediator mediator)
     {
-        _repository = repository;
+        _mediator = mediator;
     }
 
     protected override async Task<int> ExecuteAsync(
@@ -21,7 +22,7 @@ public class EditMediaCommand<TEntity, TSettings> : AsyncCommand<TSettings>
     )
     {
         AnsiConsole.MarkupLine($"[green]Adding {typeof(TEntity).Name}...[/]");
-        await _repository.UpdateAsync(new TEntity());
         return 0;
+        //TODO: Add edit impplementation
     }
 }
