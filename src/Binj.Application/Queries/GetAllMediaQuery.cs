@@ -1,3 +1,4 @@
+using Binj.Application.DTOs;
 using MediatR;
 
 namespace Binj.Application.Queries;

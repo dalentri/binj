@@ -13,19 +13,12 @@ public class ViewMediaCommand : AsyncCommand<ViewMediaSettings>
         _mediator = mediator;
     }
 
-    public override async Task<int> ExecuteAsync(
-        CommandContext context,
-        ViewMediaSettings settings,
-        CancellationToken cancellationToken
-    )
+    public override async Task<int> ExecuteAsync(CommandContext context, ViewMediaSettings settings)
     {
-        // Settings -> Application Query
-        var query = new GetAllMediaQuery(settings.TypeFilter);
-
         // Call the application layer
-        var results = await _mediator.Send(query);
+        var results = await _mediator.Send(new GetAllMediaQuery());
 
-        if (results == null || !results.Any())
+        if (results == null || results.Count == 0)
         {
             AnsiConsole.MarkupLine("[red]No media found matching those filters.[/]");
             return 0;
