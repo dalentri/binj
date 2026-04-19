@@ -1,20 +1,25 @@
 using Binj.Application.Interfaces;
 using Binj.Domain.Entities;
+using MediatR;
 using Spectre.Console;
 using Spectre.Console.Cli;
 
-public class AddMediaCommand<TEntity, TSettings> : AsyncCommand<TSettings>
+namespace Binj.Cli.Commands;
+
+public abstract class AddMediaCommand<TEntity, TSettings> : AsyncCommand<TSettings>
     where TEntity : Media, new()
     where TSettings : CommandSettings
 {
     // Bridge to the db layer
-    private readonly IMediaRepository<TEntity> _repository;
+    private readonly IMediator _mediator;
 
     // Constructor that injects the repository so the data can be saved
-    public AddMediaCommand(IMediaRepository<TEntity> repository)
+    public AddMediaCommand(IMediator mediator)
     {
-        _repository = repository;
+        _mediator = mediator;
     }
+
+    protected abstract IRequest<int> CreateMediatorRequest(TEntity entity);
 
     // Runs when the user hits enter
     protected override async Task<int> ExecuteAsync(
@@ -25,8 +30,11 @@ public class AddMediaCommand<TEntity, TSettings> : AsyncCommand<TSettings>
     {
         // Confirmation to console
         AnsiConsole.MarkupLine($"[green]Adding {typeof(TEntity).Name}...[/]");
-        // Await the addition to repository
-        await _repository.AddAsync(new TEntity());
-        return 0;
+
+        var entity = new TEntity();
+
+        var mediatorRequest = CreateMediatorRequest(entity);
+
+        return await _mediator.Send(mediatorRequest, cancellationToken);
     }
 }
