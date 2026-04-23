@@ -17,6 +17,17 @@ builder.Services.AddDbContext<BinjDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(
+        typeof(Binj.Infrastructure.Handlers.GetAllMediaHandler).Assembly
+    );
+});
+
+builder.Services.AddTransient<ViewMediaCommand>();
+builder.Services.AddTransient<AddComicCommand>();
+builder.Services.AddTransient<AddMovieCommand>();
+builder.Services.AddTransient<AddBookCommand>();
 builder.Services.AddScoped(typeof(IMediaRepository<>), typeof(MediaRepository<>));
 
 // Build the Host
@@ -51,6 +62,9 @@ app.Configure(config =>
     config.AddCommand<EditMediaCommand<Comic, EditComicSettings>>("edit-comic");
     config.AddCommand<EditMediaCommand<Movie, EditMovieSettings>>("edit-movie");
     config.AddCommand<EditMediaCommand<Book, EditBookSettings>>("edit-book");
+
+    // View Command
+    config.AddCommand<ViewMediaCommand>("view");
 });
 
-return app.Run(args);
+return await app.RunAsync(args);

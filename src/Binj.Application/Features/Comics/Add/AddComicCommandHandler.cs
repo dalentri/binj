@@ -1,7 +1,7 @@
 using Binj.Application.Interfaces;
 using Binj.Domain.Entities;
 
-namespace Binj.Application.Features.Comics;
+namespace Binj.Application.Features.Comics.Add;
 
 public class AddComicHandler
 {

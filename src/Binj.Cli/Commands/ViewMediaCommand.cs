@@ -31,13 +31,25 @@ public class ViewMediaCommand : AsyncCommand<ViewMediaSettings>
         var table = new Table();
         table.AddColumn("[yellow]ID[/]");
         table.AddColumn("[yellow]Title[/]");
-        table.AddColumn("[yellow]Author[/]");
+        table.AddColumn("[yellow]Creator[/]");
         table.AddColumn("[yellow]Type[/]");
 
         // Add each row using the attributes of the media
         foreach (var item in results)
         {
-            table.AddRow(item.Id.ToString(), item.Title, item.Author, item.MediaType);
+            var color = item.MediaType switch
+            {
+                "Book" => "blue",
+                "Comic" => "green",
+                "Movie" => "purple",
+            };
+
+            table.AddRow(
+                item.Id.ToString(),
+                item.Title,
+                item.Author,
+                $"[{color}]{item.MediaType}[/]"
+            );
         }
         AnsiConsole.Write(table);
         return 0;
