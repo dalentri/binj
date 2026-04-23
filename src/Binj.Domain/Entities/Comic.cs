@@ -6,9 +6,9 @@ public class Comic : Media
         : base() { }
 
     // Attributes
-    public int Volume { get; private set; }
-    public int Issue { get; private set; }
-    public int Rating { get; private set; }
+    public int Volume { get; set; }
+    public int Issue { get; set; }
+    public int Rating { get; set; }
 
     // Constructor
     public Comic(string title, int volume, int issue, string status, int rating)

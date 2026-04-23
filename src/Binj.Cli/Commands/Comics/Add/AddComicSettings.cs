@@ -1,6 +1,8 @@
 using System.ComponentModel;
 using Spectre.Console.Cli;
 
+namespace Binj.Cli.Commands.Comics.Add;
+
 public class AddComicSettings : CommandSettings
 {
     [CommandArgument(0, "<title>")]

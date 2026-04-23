@@ -1,4 +1,5 @@
 ﻿using Binj.Application.Interfaces;
+using Binj.Cli.Commands.Comics.Add;
 using Binj.Cli.Support;
 using Binj.Domain.Entities;
 using Binj.Infrastructure.Persistence;
@@ -29,7 +30,7 @@ var app = new CommandApp(registrar);
 app.Configure(config =>
 {
     // Add Commands
-    config.AddCommand<AddMediaCommand<Comic, AddComicSettings>>("add-comic");
+    config.AddCommand<AddComicCommand>("add-comic");
     config.AddCommand<AddMediaCommand<Movie, AddMovieSettings>>("add-movie");
     config.AddCommand<AddBookCommand>("add-book");
 
