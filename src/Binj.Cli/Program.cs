@@ -44,7 +44,7 @@ app.Configure(config =>
 {
     // Add Commands
     config.AddCommand<AddComicCommand>("add-comic");
-    config.AddCommand<AddMediaCommand<Movie, AddMovieSettings>>("add-movie");
+    config.AddCommand<AddMovieCommand>("add-movie");
     config.AddCommand<AddBookCommand>("add-book");
 
     // Edit Commands

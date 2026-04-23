@@ -6,10 +6,11 @@ public class Movie : Media
         : base() { }
 
     // getters setters
-    public string Genre { get; private set; }
-    public int Rating { get; private set; }
+    public string Genre { get; set; }
+    public int Rating { get; set; }
 
     // Constructor
+    // TODO: Move genre & rating to the base set?
     public Movie(string title, string genre, string status, int rating)
         : base(title, status)
     {
