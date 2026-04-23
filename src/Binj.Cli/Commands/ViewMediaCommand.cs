@@ -33,6 +33,7 @@ public class ViewMediaCommand : AsyncCommand<ViewMediaSettings>
         table.AddColumn("[yellow]Title[/]");
         table.AddColumn("[yellow]Creator[/]");
         table.AddColumn("[yellow]Type[/]");
+        table.AddColumn("[yellow]Date[/]");
 
         // Add each row using the attributes of the media
         foreach (var item in results)
@@ -48,7 +49,8 @@ public class ViewMediaCommand : AsyncCommand<ViewMediaSettings>
                 item.Id.ToString(),
                 item.Title,
                 item.Author,
-                $"[{color}]{item.MediaType}[/]"
+                $"[{color}]{item.MediaType}[/]",
+                item.DateAdded.ToString()
             );
         }
         AnsiConsole.Write(table);

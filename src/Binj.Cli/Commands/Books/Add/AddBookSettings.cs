@@ -7,6 +7,10 @@ public class AddBookSettings : CommandSettings
     [Description("The name of the media")]
     public string Title { get; set; } = string.Empty;
 
+    [CommandOption("-a|--author")]
+    [Description("The author of the book")]
+    public string? Author { get; set; } = string.Empty;
+
     [CommandOption("-s|--status")]
     [Description("Your current status of consumption")]
     [DefaultValue("not_started")]

@@ -1,7 +1,7 @@
 using Binj.Application.Interfaces;
 using Binj.Domain.Entities;
 
-namespace Binj.Application.Features.Books;
+namespace Binj.Application.Features.Books.Add;
 
 public class AddBookCommandHandler
 {
@@ -20,7 +20,12 @@ public class AddBookCommandHandler
     public async Task Handle(AddBook request)
     {
         // Collect the vars from the request into their columns
-        var book = new Book(request.Title, int.Parse(request.Page), request.Status);
+        var book = new Book(
+            request.Title,
+            int.Parse(request.Page),
+            request.Status,
+            request.DateAdded
+        );
 
         // Send the book object to the db
         await _repository.AddAsync(book);

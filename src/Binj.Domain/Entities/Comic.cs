@@ -11,9 +11,9 @@ public class Comic : Media
     public int Rating { get; set; }
 
     // Constructor
-    public Comic(string title, int volume, int issue, string status, int rating)
+    public Comic(string title, int volume, int issue, string status, int rating, DateTime dateAdded)
         // Pass shared data
-        : base(title, status)
+        : base(title, status, dateAdded)
     {
         Volume = volume;
         Issue = issue;

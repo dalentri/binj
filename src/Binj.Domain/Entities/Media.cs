@@ -9,16 +9,15 @@ public abstract class Media
     public string Author { get; set; } = string.Empty;
     public string Status { get; set; } = "Planned";
     public string Type => GetType().Name;
+    public DateTime DateAdded { get; set; } = DateTime.Now;
 
-    // TODO: should I add date?
-    // public DateTime DateAdded { get; protected set; }
-
-    protected Media(string title, string status)
+    protected Media(string title, string status, DateTime dateAdded)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(title);
 
         Id = Guid.NewGuid();
         Title = title;
         Status = status;
+        DateAdded = dateAdded;
     }
 }

@@ -10,5 +10,7 @@ public class AddBookCommand : AddMediaCommand<Book, AddBookSettings>
     {
         entity.Title = settings.Title;
         entity.Page = settings.Page;
+        entity.Author = settings.Author;
+        entity.DateAdded = DateTime.Now;
     }
 }

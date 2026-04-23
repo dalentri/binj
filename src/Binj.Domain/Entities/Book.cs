@@ -8,8 +8,8 @@ public class Book : Media
     public int Page { get; set; }
 
     // Constructor
-    public Book(string title, int page, string status)
-        : base(title, status)
+    public Book(string title, int page, string status, DateTime dateAdded)
+        : base(title, status, dateAdded)
     {
         Page = page;
     }

@@ -19,7 +19,8 @@ public class AddComicHandler
             int.Parse(request.Volume),
             request.Issue,
             request.Status,
-            request.Rating
+            request.Rating,
+            request.DateAdded
         );
 
         await _repository.AddAsync(comic);

@@ -11,8 +11,8 @@ public class Movie : Media
 
     // Constructor
     // TODO: Move genre & rating to the base set?
-    public Movie(string title, string genre, string status, int rating)
-        : base(title, status)
+    public Movie(string title, string genre, string status, int rating, DateTime dateAdded)
+        : base(title, status, dateAdded)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(genre);
 

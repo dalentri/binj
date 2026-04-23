@@ -42,9 +42,13 @@ using (var scope = host.Services.CreateScope())
     var services = scope.ServiceProvider;
     var ctx = services.GetRequiredService<BinjDbContext>();
 
+    var dbPath = Path.GetFullPath("binj.db");
+    Console.WriteLine($"[DEBUG] Database path: {dbPath}");
+
     if (!File.Exists("binj.db"))
     {
         Console.WriteLine("Database not found. Creating a new Database...");
+        ctx.Database.EnsureDeleted();
         ctx.Database.EnsureCreated();
     }
 }

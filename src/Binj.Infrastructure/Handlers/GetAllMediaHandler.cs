@@ -19,17 +19,17 @@ public class GetAllMediaHandler : IRequestHandler<GetAllMediaQuery, List<MediaDt
     {
         // Get books and map to dto
         var books = await _context
-            .Books.Select(b => new MediaDto(b.Id, b.Title, b.Author, "Book"))
+            .Books.Select(b => new MediaDto(b.Id, b.Title, b.Author, "Book", b.DateAdded))
             .ToListAsync(ct);
 
         // Get comics and map to dto
         var comics = await _context
-            .Comics.Select(b => new MediaDto(b.Id, b.Title, b.Author, "Comic"))
+            .Comics.Select(b => new MediaDto(b.Id, b.Title, b.Author, "Comic", b.DateAdded))
             .ToListAsync(ct);
 
         // Get movies and map to dto
         var movies = await _context
-            .Movies.Select(b => new MediaDto(b.Id, b.Title, b.Author, "Movie"))
+            .Movies.Select(b => new MediaDto(b.Id, b.Title, b.Author, "Movie", b.DateAdded))
             .ToListAsync(ct);
 
         // Append all tables to each other
