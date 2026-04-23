@@ -25,6 +25,19 @@ using IHost host = builder.Build();
 var registrar = new TypeRegistrar(host.Services);
 var app = new CommandApp(registrar);
 
+// Build db if missing
+using (var scope = host.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var ctx = services.GetRequiredService<BinjDbContext>();
+
+    if (!File.Exists("binj.db"))
+    {
+        Console.WriteLine("Database not found. Creating a new Database...");
+        ctx.Database.EnsureCreated();
+    }
+}
+
 // Commands
 // TODO: Make custom commands for all media types similar to AddBookCommand
 app.Configure(config =>
@@ -39,4 +52,5 @@ app.Configure(config =>
     config.AddCommand<EditMediaCommand<Movie, EditMovieSettings>>("edit-movie");
     config.AddCommand<EditMediaCommand<Book, EditBookSettings>>("edit-book");
 });
+
 return app.Run(args);
