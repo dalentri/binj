@@ -8,10 +8,11 @@ public abstract class Media
     public string Title { get; set; } = string.Empty;
     public string Author { get; set; } = string.Empty;
     public string Status { get; set; } = "Planned";
-    public string Type => GetType().Name;
+    public string Type { get; set; } = string.Empty;
     public DateTime DateAdded { get; set; } = DateTime.Now;
 
     protected Media(string title, string status, DateTime dateAdded)
+        : this()
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(title);
 

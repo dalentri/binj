@@ -1,6 +1,8 @@
 using System.ComponentModel;
 using Spectre.Console.Cli;
 
+namespace Binj.Cli.Commands.Books.Edit;
+
 public class EditBookSettings : CommandSettings
 {
     [CommandArgument(0, "<Id>")]

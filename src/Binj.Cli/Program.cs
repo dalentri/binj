@@ -1,9 +1,12 @@
-﻿using Binj.Application.Interfaces;
+﻿using Binj.Application.Features;
+using Binj.Application.Interfaces;
+using Binj.Cli.Commands;
 using Binj.Cli.Commands.Comics.Add;
 using Binj.Cli.Support;
 using Binj.Domain.Entities;
 using Binj.Infrastructure.Persistence;
 using Binj.Infrastructure.Persistence.Repositories;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,8 +22,9 @@ builder.Services.AddDbContext<BinjDbContext>(options =>
 
 builder.Services.AddMediatR(cfg =>
 {
-    cfg.RegisterServicesFromAssembly(
-        typeof(Binj.Infrastructure.Handlers.GetAllMediaHandler).Assembly
+    cfg.RegisterServicesFromAssemblies(
+        typeof(Binj.Infrastructure.Handlers.GetAllMediaHandler).Assembly,
+        typeof(Binj.Application.Queries.GetMediaByIdQuery).Assembly
     );
 });
 
@@ -28,6 +32,19 @@ builder.Services.AddTransient<ViewMediaCommand>();
 builder.Services.AddTransient<AddComicCommand>();
 builder.Services.AddTransient<AddMovieCommand>();
 builder.Services.AddTransient<AddBookCommand>();
+builder.Services.AddTransient(typeof(UpdateMediaCommandHandler<>));
+builder.Services.AddTransient(
+    typeof(IRequestHandler<UpdateMediaCommand<Book>, Unit>),
+    typeof(UpdateMediaCommandHandler<Book>)
+);
+builder.Services.AddTransient(
+    typeof(IRequestHandler<UpdateMediaCommand<Comic>, Unit>),
+    typeof(UpdateMediaCommandHandler<Comic>)
+);
+builder.Services.AddTransient(
+    typeof(IRequestHandler<UpdateMediaCommand<Movie>, Unit>),
+    typeof(UpdateMediaCommandHandler<Movie>)
+);
 builder.Services.AddScoped(typeof(IMediaRepository<>), typeof(MediaRepository<>));
 
 // Build the Host
@@ -48,7 +65,6 @@ using (var scope = host.Services.CreateScope())
     if (!File.Exists("binj.db"))
     {
         Console.WriteLine("Database not found. Creating a new Database...");
-        ctx.Database.EnsureDeleted();
         ctx.Database.EnsureCreated();
     }
 }
@@ -63,9 +79,9 @@ app.Configure(config =>
     config.AddCommand<AddBookCommand>("add-book");
 
     // Edit Commands
-    config.AddCommand<EditMediaCommand<Comic, EditComicSettings>>("edit-comic");
-    config.AddCommand<EditMediaCommand<Movie, EditMovieSettings>>("edit-movie");
-    config.AddCommand<EditMediaCommand<Book, EditBookSettings>>("edit-book");
+    config.AddCommand<EditMediaCommand<Comic>>("edit-comic");
+    config.AddCommand<EditMediaCommand<Movie>>("edit-movie");
+    config.AddCommand<EditMediaCommand<Book>>("edit-book");
 
     // View Command
     config.AddCommand<ViewMediaCommand>("view");
